@@ -1,0 +1,11 @@
+{
+  "name": "iothome",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Home interface for Internet Of Things",
+  "author": "estebanrfp",
+  "dependencies": {
+    "firebase": "^3.7.0",
+    "simple-git": "^1.70.0"
+  }
+}
