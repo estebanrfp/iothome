@@ -20,6 +20,8 @@ MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
 
 # kiosk
 RUN apt-get update && apt-get install -y \
+    git-core \
+    wget \
     chromium-browser \
     xserver-xorg \
     xserver-xorg-legacy \
