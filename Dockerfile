@@ -39,7 +39,7 @@ RUN npm i -g pm2
 
 # Add application files
 # ADD . /data
-RUN sudo xinit /data/startkiosk.sh -- -nocursor
+RUN xinit /data/startkiosk.sh -- -nocursor
 
 # CMD ["pm2", "start", "processes.json", "--no-daemon"]
 CMD ["pm2-dev", "process.yml"]
