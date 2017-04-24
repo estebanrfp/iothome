@@ -19,7 +19,13 @@ MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
 #     rm -rf /var/lib/apt/lists/*
 
 # kiosk
-RUN sudo apt-get install -y chromium-browser xserver-xorg xserver-xorg-legacy xinit
+RUN apt-get update && apt-get install -y \
+    chromium-browser \
+    xserver-xorg \
+    xserver-xorg-legacy \
+    xinit \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 RUN sudo dpkg -i node_latest_armhf.deb
