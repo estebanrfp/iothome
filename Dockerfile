@@ -6,20 +6,20 @@ MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
 # ENV appDir /var/www/app/current
 
 # Run updates and install deps
-RUN apt-get update && apt-get install -y \
-    git-core \
-    build-essential \
-    wget \
-    gcc \
-    python \
-    python-dev \
-    python-pip \
-    python-virtualenv \
-    --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y \
+#     git-core \
+#     build-essential \
+#     wget \
+#     gcc \
+#     python \
+#     python-dev \
+#     python-pip \
+#     python-virtualenv \
+#     --no-install-recommends && \
+#     rm -rf /var/lib/apt/lists/*
 
 # kiosk
-RUN sudo apt-get install chromium-browser xserver-xorg xserver-xorg-legacy xinit
+RUN sudo apt-get install -y chromium-browser xserver-xorg xserver-xorg-legacy xinit
 
 RUN wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 RUN sudo dpkg -i node_latest_armhf.deb
