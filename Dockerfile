@@ -1,6 +1,6 @@
 # Dockerfile
-FROM resin/armhf-alpine-node
-# FROM hypriot/rpi-node:6.9
+# FROM armhf/alpine
+FROM hypriot/rpi-node:6.9
 MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
 RUN npm install pm2 -g
 # Set environment variables
@@ -44,7 +44,13 @@ RUN npm install pm2 -g
 #   libexpat-dev && rm -rf /var/lib/apt/lists/*
 
 # kiosk
-RUN sudo apt-get update && apt-get install -y git-core wget chromium-browser xserver-xorg xserver-xorg-legacy xinit
+RUN sudo apt-get update && apt-get install -y \
+    git-core \
+    wget \
+    chromium-browser \
+    xserver-xorg \
+    xserver-xorg-legacy \
+    xinit && rm -rf /var/lib/apt/lists/*
 
 # Define working directory
 WORKDIR /data
