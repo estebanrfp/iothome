@@ -44,7 +44,7 @@ RUN npm install pm2 -g
 #   libexpat-dev && rm -rf /var/lib/apt/lists/*
 
 # kiosk
-RUN sudo apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     git-core \
     wget \
     chromium-browser \
