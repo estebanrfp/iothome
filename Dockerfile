@@ -53,6 +53,8 @@ RUN git clone https://github.com/estebanrfp/iothome.git /data/
 # Add our package.json and install *before* adding our application files
 # ADD package.json ./
 
+ADD start.sh ./
+
 RUN npm i --production
 
 # Add application files
