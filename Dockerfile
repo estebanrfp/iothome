@@ -1,5 +1,5 @@
 # Dockerfile
-FROM armhf/alpine
+resin/armhf-alpine-node
 # FROM hypriot/rpi-node:6.9
 MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
 RUN npm install pm2 -g
