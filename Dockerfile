@@ -50,7 +50,7 @@ RUN apt-get update && apt-get install -y \
     chromium-browser \
     xserver-xorg \
     xserver-xorg-legacy \
-    lsb-core
+    lsb-core \
     xinit && rm -rf /var/lib/apt/lists/*
 
 # Define working directory
