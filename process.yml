@@ -1,9 +1,12 @@
 apps:
-  - script   : './xinit ./startkiosk.sh -- -nocursor'
-    name     : 'index'
-    exec_mode: 'cluster'
+  - script   : './start.sh'
+    name     : 'start'
+    exec_interpreter: 'bash'
+    exec_mode : 'fork_mode'
+    watch     : true,
     kill_timeout : 100
   - script   : './auto.js'
     name     : 'auto'
-    exec_mode: 'cluster'
+    exec_mode : 'cluster'
+    watch     : true,
     kill_timeout : 100

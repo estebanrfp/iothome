@@ -1,7 +1,7 @@
 # Dockerfile
-FROM resin/rpi-raspbian:jessie
+FROM hypriot/rpi-node:6.9
 MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
-
+RUN npm install pm2 -g
 # Set environment variables
 # ENV appDir /var/www/app/current
 
@@ -18,31 +18,44 @@ MAINTAINER Esteban Fuster Pozzi <estebanrfp@gmail.com>
 #     --no-install-recommends && \
 #     rm -rf /var/lib/apt/lists/*
 
+# RUN apt-get update && apt-get install -y \
+#   apt-utils \
+#   clang \
+#   xserver-xorg-core \
+#   xserver-xorg-input-all \
+#   xserver-xorg-video-fbdev \
+#   xorg \
+#   libdbus-1-dev \
+#   libgtk2.0-dev \
+#   libnotify-dev \
+#   libgnome-keyring-dev \
+#   libgconf2-dev \
+#   libasound2-dev \
+#   libcap-dev \
+#   libcups2-dev \
+#   libxtst-dev \
+#   libxss1 \
+#   libnss3-dev \
+#   fluxbox \
+#   libsmbclient \
+#   libssh-4 \
+#   fbset \
+#   libexpat-dev && rm -rf /var/lib/apt/lists/*
+
 # kiosk
 RUN sudo apt-get update && apt-get install -y git-core wget chromium-browser xserver-xorg xserver-xorg-legacy xinit
-
-RUN wget http://node-arm.herokuapp.com/node_latest_armhf.deb
-RUN sudo dpkg -i node_latest_armhf.deb
 
 # Define working directory
 WORKDIR /data
 
 RUN git clone https://github.com/estebanrfp/iothome.git /data/
-RUN chmod +x /data/startkiosk.sh
+# RUN chmod +x /data/startkiosk.sh
 # Add our package.json and install *before* adding our application files
 # ADD package.json ./
 
 RUN npm i --production
 
-# Install pm2 so we can run our application
-RUN npm i -g pm2
-
 # Add application files
 # ADD . /data
-RUN xinit /data/startkiosk.sh -- -nocursor
 
-# CMD ["pm2", "start", "processes.json", "--no-daemon"]
 CMD ["pm2-dev", "process.yml"]
-
-# CMD ["pm2-docker", "process.yml"]
-# CMD ["pm2-dev", "process.yml", "--only", "APP"]
