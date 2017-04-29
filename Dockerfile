@@ -55,6 +55,8 @@ RUN apt-get update && apt-get install -y \
     lsb-release \
     xinit && rm -rf /var/lib/apt/lists/*
 
+RUN sudo rpi-update
+
 # Define working directory
 WORKDIR /data
 
