@@ -57,7 +57,7 @@ RUN apt-get update && apt-get install -y \
 # Define working directory
 WORKDIR /data
 
-RUN git clone https://github.com/estebanrfp/iothome.git /data/
+RUN git clone https://github.com/estebanrfp/iothome.git ./
 # RUN chmod +x /data/startkiosk.sh
 # Add our package.json and install *before* adding our application files
 # ADD package.json ./
