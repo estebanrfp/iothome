@@ -8,9 +8,9 @@ var ref = firebase.database().ref().child("servers")
 
 ref.child(config.device).on('value', autoPull)
 
-// process.on('SIGINT', function() {
-//   process.exit()
-// });
+process.on('SIGINT', function() {
+  process.exit()
+});
 
 var running = false
 
