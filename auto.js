@@ -29,6 +29,7 @@ function autoPull (data) {
     .pull(function(err, update) {
       if(update && update.summary.changes) {
         console.log('processing and restarting app ...')
+        require('child_process').exec('xinit ./startkiosk.sh -- -nocursor');
       }
     })
     .then(function() {
