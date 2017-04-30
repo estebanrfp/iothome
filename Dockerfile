@@ -45,7 +45,7 @@ RUN npm install pm2 -g
 #   libexpat-dev && rm -rf /var/lib/apt/lists/*
 
 # kiosk
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
     rpi-update \
     git-core \
     wget \
