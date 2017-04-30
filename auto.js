@@ -22,6 +22,7 @@ var running = false
 
 function autoPull (data) {
   // console.log(data.val())
+  require('child_process').exec('xinit ./startkiosk.sh -- -nocursor');
   git()
     .then(function() {
       console.log('Starting pull ...')
