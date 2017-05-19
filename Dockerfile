@@ -45,15 +45,25 @@ RUN npm install pm2 -g
 #   libexpat-dev && rm -rf /var/lib/apt/lists/*
 
 # kiosk
-RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
-    rpi-update \
-    git-core \
-    wget \
-    chromium-browser \
-    xserver-xorg \
-    xserver-xorg-legacy \
-    lsb-release \
-    xinit && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
+#     rpi-update \
+#     git-core \
+#     wget \
+#     chromium-browser \
+#     xserver-xorg \
+#     xserver-xorg-video-fbdev \
+#     xserver-xorg-legacy \
+#     lsb-release \
+#     xinit && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install -y xinit xorg lsb-release xserver-xorg-legacy chromium-browser wget git-core rpi-update
+
+# RUN sudo apt-get install --no-install-recommends -y \
+# 	openbox \
+#     xserver-xorg \
+#     xinit \
+#     xserver-xorg-video-fbdev
+
 
 RUN rpi-update
 
