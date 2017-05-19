@@ -61,7 +61,7 @@ RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
     git-core \
     wget \
     chromium-browser \
-    xorg
+    xorg \
     lsb-release \
     xserver-xorg \
     xserver-xorg-video-fbdev \
