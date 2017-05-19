@@ -68,6 +68,7 @@ RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
     xserver-xorg-legacy \
     xinit && rm -rf /var/lib/apt/lists/*
 
+RUN sudo sed -i "s/allowed_users=console/allowed_users=anybody/" /etc/X11/Xwrapper.config
 # RUN sudo apt-get install --no-install-recommends -y \
 # 	openbox \
 #     xserver-xorg \
@@ -75,7 +76,7 @@ RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
 #     xserver-xorg-video-fbdev
 
 
-RUN rpi-update
+# RUN rpi-update
 
 # Define working directory
 WORKDIR /data
