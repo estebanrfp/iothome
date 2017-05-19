@@ -56,7 +56,17 @@ RUN npm install pm2 -g
 #     lsb-release \
 #     xinit && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y xinit xorg lsb-release xserver-xorg-legacy chromium-browser wget git-core rpi-update
+RUN apt-get update && apt-get dist-upgrade && apt-get install -y \
+    rpi-update \
+    git-core \
+    wget \
+    chromium-browser \
+    xorg
+    lsb-release \
+    xserver-xorg \
+    xserver-xorg-video-fbdev \
+    xserver-xorg-legacy \
+    xinit && rm -rf /var/lib/apt/lists/*
 
 # RUN sudo apt-get install --no-install-recommends -y \
 # 	openbox \
