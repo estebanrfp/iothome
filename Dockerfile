@@ -76,7 +76,7 @@ RUN sudo sed -i "s/allowed_users=console/allowed_users=anybody/" /etc/X11/Xwrapp
 #     xserver-xorg-video-fbdev
 
 
-# RUN rpi-update
+RUN rpi-update
 
 # Define working directory
 WORKDIR /data
