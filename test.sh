@@ -1,0 +1,1 @@
+chromium-browser --app=https://tessel-climate-7f227.firebaseapp.com/ -start-fullscreen --no-sandbox
